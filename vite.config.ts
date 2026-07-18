@@ -19,7 +19,6 @@ export default defineConfig({
     nitro(
       isGitHubPages
         ? {
-            preset: "github-pages",
             baseURL: basePath,
             prerender: {
               routes: ["/"],
