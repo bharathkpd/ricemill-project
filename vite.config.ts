@@ -5,14 +5,29 @@ import tsConfigPaths from "vite-tsconfig-paths";
 import { tanstackStart } from "@tanstack/react-start/plugin/vite";
 import { nitro } from "nitro/vite";
 
+const isGitHubPages = process.env.GITHUB_PAGES === "true";
+const basePath = process.env.BASE_PATH || (isGitHubPages ? "/ricemill-project/" : "/");
+
 export default defineConfig({
+  base: basePath,
   plugins: [
     tailwindcss(),
     tsConfigPaths({ projects: ["./tsconfig.json"] }),
     tanstackStart({
       server: { entry: "server" },
     }),
-    nitro(),
+    nitro(
+      isGitHubPages
+        ? {
+            preset: "github-pages",
+            baseURL: basePath,
+            prerender: {
+              routes: ["/"],
+              crawlLinks: true,
+            },
+          }
+        : {}
+    ),
     react(),
   ],
 });
