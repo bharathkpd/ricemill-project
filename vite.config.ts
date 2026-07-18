@@ -19,10 +19,10 @@ export default defineConfig({
     nitro(
       isGitHubPages
         ? {
-            baseURL: basePath,
             prerender: {
-              routes: ["/"],
+              routes: [basePath],
               crawlLinks: true,
+              autoSubfolderIndex: true,
             },
           }
         : {}
