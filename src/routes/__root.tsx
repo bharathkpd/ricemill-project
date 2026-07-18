@@ -68,14 +68,16 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+const base = import.meta.env.BASE_URL || "/";
+const prefix = base.endsWith("/") ? base.slice(0, -1) : base;
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Sri Bhupatheswara Rice Mill & Agro Products — Yakasiri, Tirupati" },
-      { name: "description", content: "Modern rice mill in Yakasiri, Chittamur Mandal, Tirupati Dt. Wholesale rice, dals, spice powders & cattle feed at mill rates. Custom paddy milling available." },
-      { name: "keywords", content: "rice mill Tirupati, wholesale rice pulses Chittamur, Yakasiri rice mill, paddy milling Andhra Pradesh, agro products" },
+      { title: "Sri Bhupatheswara Rice Mill & Agro Products | Yakasiri, Tirupati Dt." },
+      { name: "description", content: "Wholesale & retail rice, dals, spice powders and cattle feed at mill rates. Modern rice mill with custom paddy milling in Yakasiri, Chittamur Mandal, Tirupati District, AP." },
       { property: "og:title", content: "Sri Bhupatheswara Rice Mill & Agro Products" },
       { property: "og:description", content: "Wholesale rice, dals, spice powders & cattle feed at mill rates. Yakasiri, Chittamur Mandal, Tirupati." },
       { property: "og:type", content: "website" },
@@ -83,7 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
+      { rel: "icon", href: `${prefix}/favicon.ico`, type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Sans+Telugu:wght@400;500;600;700;800&display=swap" },

@@ -5,12 +5,15 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const LOGO = "/assets/logo.jpg";
-const HERO = "/assets/hero-drone.jpg";
-const MILL_WIDE = "/assets/mill-wide.jpg";
-const MILL_FRONT = "/assets/mill-front.jpg";
-const MILL_SIDE = "/assets/mill-side.jpg";
-const MILL_GATE = "/assets/mill-gate.jpg";
+const base = import.meta.env.BASE_URL || "/";
+const prefix = base.endsWith("/") ? base.slice(0, -1) : base;
+
+const LOGO = `${prefix}/assets/logo.jpg`;
+const HERO = `${prefix}/assets/hero-drone.jpg`;
+const MILL_WIDE = `${prefix}/assets/mill-wide.jpg`;
+const MILL_FRONT = `${prefix}/assets/mill-front.jpg`;
+const MILL_SIDE = `${prefix}/assets/mill-side.jpg`;
+const MILL_GATE = `${prefix}/assets/mill-gate.jpg`;
 
 const PRIMARY_PHONE = "919908717008";
 const PHONES = [
