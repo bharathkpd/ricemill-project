@@ -15,12 +15,10 @@ const MILL_FRONT = `${prefix}/assets/mill-front.jpg`;
 const MILL_SIDE = `${prefix}/assets/mill-side.jpg`;
 const MILL_GATE = `${prefix}/assets/mill-gate.jpg`;
 
-const PRIMARY_PHONE = "919908717008";
+const PRIMARY_PHONE = "917995154690";
 const PHONES = [
-  { label: "88970 17953", tel: "918897017953" },
-  { label: "99087 17008", tel: "919908717008" },
-  { label: "82475 75306", tel: "918247575306" },
-  { label: "79951 54690 (Owner)", tel: "917995154690" },
+  { name: "Kaku Prabhakar Reddy", role: "Main Owner", label: "79951 54690", tel: "917995154690" },
+  { name: "Kaku Ekambaram Reddy", role: "Owner", label: "93955 23551", tel: "919395523551" },
 ];
 
 const WA_LINK = `https://wa.me/${PRIMARY_PHONE}?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20your%20products.`;
@@ -72,7 +70,7 @@ const categories = [
       { en: "Tavudu (Rice Bran)", te: "తవుడు" },
       { en: "Taraku Tavudu", te: "తరకు తవుడు" },
       { en: "Chiru Nooka", te: "చిరు నూక" },
-      { en: "Minapenttu", te: "మినపొట్టు" },
+      { en: "Minapottu", te: "మినపొట్టు" },
     ],
   },
 ];
@@ -327,14 +325,19 @@ function Index() {
 
               <div className="rounded-2xl border border-border bg-card p-4">
                 <div className="text-sm font-semibold">Phone Numbers</div>
-                <ul className="mt-3 grid gap-2 sm:grid-cols-2">
+                <ul className="mt-3 flex flex-col gap-3">
                   {PHONES.map((p) => (
                     <li key={p.tel}>
                       <a
                         href={`tel:+${p.tel}`}
-                        className="flex items-center gap-2 rounded-xl bg-primary/10 px-3 py-2.5 text-sm font-semibold text-primary hover:bg-primary/15"
+                        className="flex flex-col gap-1 rounded-xl bg-primary/10 px-4 py-3 text-sm text-primary transition-colors hover:bg-primary/15"
                       >
-                        <Phone className="h-4 w-4" /> {p.label}
+                        <div className="flex items-center gap-2 font-semibold">
+                          <Phone className="h-4 w-4" /> {p.label}
+                        </div>
+                        <div className="text-xs font-medium text-primary/80">
+                          {p.name} <span className="opacity-75">({p.role})</span>
+                        </div>
                       </a>
                     </li>
                   ))}
@@ -411,11 +414,12 @@ function Index() {
           </div>
           <div className="text-sm">
             <div className="font-semibold">Call Us</div>
-            <ul className="mt-2 space-y-1">
+            <ul className="mt-2 space-y-3">
               {PHONES.map((p) => (
                 <li key={p.tel}>
-                  <a href={`tel:+${p.tel}`} className="text-muted-foreground hover:text-primary">
-                    {p.label}
+                  <a href={`tel:+${p.tel}`} className="flex flex-col text-muted-foreground transition-colors hover:text-primary">
+                    <span className="font-medium">{p.label}</span>
+                    <span className="text-xs opacity-80">{p.name} ({p.role})</span>
                   </a>
                 </li>
               ))}
