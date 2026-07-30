@@ -17,8 +17,8 @@ const MILL_GATE = `${prefix}/assets/mill-gate.jpg`;
 
 const PRIMARY_PHONE = "917995154690";
 const PHONES = [
-  { name: "Kaku Prabhakar Reddy", role: "Main Owner", label: "79951 54690", tel: "917995154690" },
-  { name: "Kaku Ekambaram Reddy", role: "Owner", label: "93955 23551", tel: "919395523551" },
+  { name: "Kaku Prabhakar Reddy", label: "79951 54690", tel: "917995154690" },
+  { name: "Kaku Ekambaram Reddy", label: "93955 23551", tel: "919395523551" },
 ];
 
 const WA_LINK = `https://wa.me/${PRIMARY_PHONE}?text=Hello%2C%20I%27d%20like%20to%20enquire%20about%20your%20products.`;
@@ -336,7 +336,7 @@ function Index() {
                           <Phone className="h-4 w-4" /> {p.label}
                         </div>
                         <div className="text-xs font-medium text-primary/80">
-                          {p.name} <span className="opacity-75">({p.role})</span>
+                          {p.name}
                         </div>
                       </a>
                     </li>
@@ -419,7 +419,7 @@ function Index() {
                 <li key={p.tel}>
                   <a href={`tel:+${p.tel}`} className="flex flex-col text-muted-foreground transition-colors hover:text-primary">
                     <span className="font-medium">{p.label}</span>
-                    <span className="text-xs opacity-80">{p.name} ({p.role})</span>
+                    <span className="text-xs opacity-80">{p.name}</span>
                   </a>
                 </li>
               ))}
